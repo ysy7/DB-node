@@ -73,3 +73,11 @@ img{
 	font-weight: bold;
 	color:#000fff;
 }
+#account{
+    width: 45px;
+    height: 45px;
+    margin-top: 104px;
+    float:left;
+    margin-left: 10px;
+    
+}

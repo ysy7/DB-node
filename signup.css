@@ -1,10 +1,17 @@
+#go{
+    width: 70px;
+    margin-left:90px;
+    margin-top: 20px;
+    padding: 0px;
+    margin-bottom: 0px;
+}
 .main{
-    height: 680px;
+    height: 800px;
     margin-top: 40px;
     margin-left: 350px;
     margin-right: 350px;
     background-color: #A9CBD7;
-    border-radius: 60px 60px 0px 0px;
+    border-radius: 60px 60px;
     padding-top:50px;
     margin-bottom: 0px;
 }
