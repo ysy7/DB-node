@@ -51,3 +51,12 @@ input{
     margin-top: 70px;
     font-size: 20px;
 }
+#go{
+    color: red;
+    text-decoration: none;
+}
+.gogo{
+    margin-top: 20px;
+    margin-right: 95px;
+
+}
