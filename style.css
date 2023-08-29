@@ -50,13 +50,13 @@ img{
 .comment{
 	display: block;
     position: relative;
-    top: -26px;
+    top: -15px;
     width: 90%;
-    height: 85px;
+    height: 100px;
     background-color: rgb(226, 226, 223);
     margin-left: 12px;
     padding: 5px;
-	border-radius: 10px;
+	border-radius: 20px;
 }
 .menu{
     text-decoration-line: none;
@@ -80,4 +80,11 @@ img{
     float:left;
     margin-left: 10px;
     
+}
+#cart{
+    float: right;
+    width: 48px;
+    height: 48px;
+    margin-top: 104px;
+
 }
