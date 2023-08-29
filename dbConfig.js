@@ -15,7 +15,7 @@ async function runQuery() {
     connection = await oracledb.getConnection(dbConfig);
 
     // 실행할 쿼리
-    const sqlQuery = 'SELECT * FROM your_table';
+    const sqlQuery = 'SELECT * FROM hhhtest';
 
     // 쿼리 실행
     const result = await connection.execute(sqlQuery);

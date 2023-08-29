@@ -8,7 +8,7 @@ const PORT = 3000;
 const dbConfig = {
   user: 'nodetest',
   password: '1234',
-  connectString: 'your_connection_string'
+  connectString: 'localhost:1521/xe'
 };
 
 app.use(bodyParser.json());
@@ -21,7 +21,7 @@ app.post('/signup', async (req, res) => {
     const connection = await oracledb.getConnection(dbConfig);
 
     const insertQuery = `
-      INSERT INTO users (id, username, password)
+      INSERT INTO users (username, password)
       VALUES (user_seq.NEXTVAL, :username, :password)
     `;
     const bindParams = {
@@ -40,6 +40,6 @@ app.post('/signup', async (req, res) => {
 });
 
 // 서버 시작
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(3000, () => {
+  console.log(`Server is running on port ${3000}`);
 });
