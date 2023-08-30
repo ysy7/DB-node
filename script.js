@@ -1,6 +1,4 @@
-		//데이터 정의 JSON 타입으로 작성(추후 DB 연동시 DB 데이터로 대체함)
-		//신발 설명은 일단 여기서 수정하면 됨
-		const data = [
+const data = [
 			{category:'man',id:'01',image:'m1.png',title:'Adidas',comment:'Adidas Yeezy Foam RNNR MX Cinder <br><br>134,000원<button>cart</button>'}
 		   ,{category:'man',id:'02',image:'m2.png',title:'Jordan',comment:'Jordan 1 Retro Low OG Black Toe <br><br>168,000원<button>cart</button>'}
 		   ,{category:'man',id:'03',image:'m3.png',title:'Asics',comment:'Asics Gel-Kayano 14 Cream Black <br><br>910,000원<button>cart</button>'}
@@ -29,30 +27,29 @@
 		   ,{category:'kid',id:'24',image:'k8.png',title:'Nike',comment:'Nike Air Zoom Alphafly Next% Flyknit Rawdacious <br><br>399,000원<button>cart</button>'}
 	   ];
 	   
-	   $(document).ready(function(){//jquery 화면로딩(html을 모두 불러온후)이 끝나면 스크립트 실행
-		   debugger;//브레이크 포인트 DevTools가 열린상태에서 이문구를 만나면 스크립트 중지됨, 중지후 F8키 클릭시 다시진행됨
+	   $(document).ready(function(){
+		   debugger;
 
 		   //로딩시 또는 메뉴변경시 이미지위치와 설명 초기화
 		   let initComment = function(){
-			   $('.image').css({'display':'block','background-position':'100% 90%'});//이미지 중간 위치
+			   $('.image').css({'display':'block','background-position':'100% 90%'});
 			   $('.comment').css({'display':'none'});//설명 숨김
 		   };
 		   
 		   let dataInsert = function(){
-			   //전체 신발 화면에 뿌린다(홈)
 			   let shoesHtml='';
 			   for(let i=0 ; i<data.length ; i++){
 				   shoesHtml +='\n<div class="content"><div class="image img'+data[i].id+'" style="background-image:url(img/'+data[i].image+')">';
 				   shoesHtml +='\n  </div><div class="comment">['+data[i].title+']<br>'+data[i].comment+'</div>'
 				   shoesHtml +='\n</div>';
 			   }
-			   $('#content').empty();//#content 하위 html 삭제
+			   $('#content').empty();
 			   $('#content').append(shoesHtml);//#content 하위에 shoesHtml 삽입
 
 			   initComment();
 		   }
 
-		   if(!$('#nav-menu.menu').hasClass('.selectMenu')){//메뉴에 selectMenu 클래스가 없으면.. '!'는 Not
+		   if(!$('#nav-menu.menu').hasClass('.selectMenu')){
 			   $('.nav-menu').empty();//메뉴 초기화
 			   
 			   //메뉴생성(한개 화면에서 처리하기 위해..)
@@ -60,10 +57,9 @@
 			   menuHtml += '<a class="menu" id="man">Man</a>';
 			   menuHtml += '<a class="menu" id="woman">Woman</a>';
 			   menuHtml += '<a class="menu" id="kid">Kid</a>';
-			   //.nav-menu에 메뉴를 넣어준다
 			   $('.nav-menu').append(menuHtml);
 			   
-			   dataInsert();//메뉴 하위에 데이터 뿌려줌..
+			   dataInsert();
 		   }
 
 		   //HOME 버튼 클릭시
@@ -73,10 +69,10 @@
 		   });
 
 		   //메뉴 클릭시
-		   $('.menu').click(function(){//class가 menu인거 클릭시
-			   let selectedMenu = $(this).text();//클릭한 메뉴의 텍스트 즉 'Man' or 'Woman' or 'Kid'
+		   $('.menu').click(function(){
+			   let selectedMenu = $(this).text();
 			   $('.menu').removeClass('selectMenu');//메뉴에서 selectMenu 클래스를 모두 제거함 
-			   $(this).addClass('selectMenu');//현재 클릭한 메뉴에만 selectMenu 클래스를 넣어줌
+			   $(this).addClass('selectMenu');
 
 			   let filterData = [];//배열 변수선언
 			   //category가 man or woman or kis 인거만 filterData 배열에 넣어준다.
@@ -92,8 +88,8 @@
 				   shoesHtml +='\n  </div><div class="comment" style="display:none;">['+filterData[i].title+']<br>'+filterData[i].comment+'</div>'
 				   shoesHtml +='\n</div>';
 			   }
-			   $('#content').empty();//#content 하위 html 삭제
-			   $('#content').append(shoesHtml);//#content 하위에 shoesHtml 삽입
+			   $('#content').empty();
+			   $('#content').append(shoesHtml);
 
 			   initComment();
 		   });
